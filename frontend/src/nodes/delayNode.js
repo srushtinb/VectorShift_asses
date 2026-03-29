@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import { BaseNode } from './baseNode';
+import { useState } from "react";
+import { Handle, Position } from "reactflow";
+import { BaseNode } from "./baseNode";
 
 export const DelayNode = ({ id, data }) => {
   const [delayMs, setDelayMs] = useState(data?.delayMs ?? 250);
-  const [unit, setUnit] = useState(data?.unit || 'ms');
+  const [unit, setUnit] = useState(data?.unit || "ms");
 
   const handleDelayMsChange = (e) => {
     const parsed = Number(e.target.value);
@@ -21,7 +21,7 @@ export const DelayNode = ({ id, data }) => {
         type="target"
         position={Position.Left}
         id={`${id}-input`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
 
       <div>
@@ -35,7 +35,7 @@ export const DelayNode = ({ id, data }) => {
             type="number"
             value={delayMs}
             onChange={handleDelayMsChange}
-            style={{ width: '80px' }}
+            style={{ width: "80px" }}
           />
         </label>
       </div>
@@ -54,9 +54,8 @@ export const DelayNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-output`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
     </BaseNode>
   );
 };
-

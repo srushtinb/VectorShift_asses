@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import { BaseNode } from './baseNode';
+import { useState } from "react";
+import { Handle, Position } from "reactflow";
+import { BaseNode } from "./baseNode";
 
 export const FilterNode = ({ id, data }) => {
-  const [keyword, setKeyword] = useState(data?.keyword || 'foo');
-  const [mode, setMode] = useState(data?.mode || 'contains');
+  const [keyword, setKeyword] = useState(data?.keyword || "foo");
+  const [mode, setMode] = useState(data?.mode || "contains");
 
   const handleKeywordChange = (e) => {
     setKeyword(e.target.value);
@@ -20,7 +20,7 @@ export const FilterNode = ({ id, data }) => {
         type="target"
         position={Position.Left}
         id={`${id}-input`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
 
       <div>
@@ -34,7 +34,7 @@ export const FilterNode = ({ id, data }) => {
             type="text"
             value={keyword}
             onChange={handleKeywordChange}
-            style={{ width: '150px' }}
+            style={{ width: "150px" }}
           />
         </label>
       </div>
@@ -54,9 +54,8 @@ export const FilterNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-output`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
     </BaseNode>
   );
 };
-

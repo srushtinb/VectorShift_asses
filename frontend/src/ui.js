@@ -1,7 +1,3 @@
-// ui.js
-// Displays the drag-and-drop UI
-// --------------------------------------------------
-
 import { useCallback, useState, useRef } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "./store";
@@ -62,7 +58,6 @@ export const PipelineUI = () => {
     onConnect,
   } = useStore(selector, shallow);
 
-  // ✅ FIXED onDrop (no warning now)
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();

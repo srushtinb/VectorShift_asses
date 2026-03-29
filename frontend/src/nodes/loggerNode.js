@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import { BaseNode } from './baseNode';
+import { useState } from "react";
+import { Handle, Position } from "reactflow";
+import { BaseNode } from "./baseNode";
 
 export const LoggerNode = ({ id, data }) => {
-  const [level, setLevel] = useState(data?.level || 'info');
-  const [prefix, setPrefix] = useState(data?.prefix || '[log]');
+  const [level, setLevel] = useState(data?.level || "info");
+  const [prefix, setPrefix] = useState(data?.prefix || "[log]");
 
   const handleLevelChange = (e) => {
     setLevel(e.target.value);
@@ -20,7 +20,7 @@ export const LoggerNode = ({ id, data }) => {
         type="target"
         position={Position.Left}
         id={`${id}-input`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
 
       <div>
@@ -46,7 +46,7 @@ export const LoggerNode = ({ id, data }) => {
             type="text"
             value={prefix}
             onChange={handlePrefixChange}
-            style={{ width: '140px' }}
+            style={{ width: "140px" }}
           />
         </label>
       </div>
@@ -55,9 +55,8 @@ export const LoggerNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-output`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
     </BaseNode>
   );
 };
-

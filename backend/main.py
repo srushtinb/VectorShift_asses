@@ -25,7 +25,6 @@ class PipelineGraph(BaseModel):
 
 
 def is_directed_acyclic_graph(nodes: List[Any], edges: List[Any]) -> bool:
-    # Build adjacency list from reactflow-like edges: {source, target}
     all_ids = set()
 
     for n in nodes:
@@ -53,7 +52,6 @@ def is_directed_acyclic_graph(nodes: List[Any], edges: List[Any]) -> bool:
         src = str(src)
         dst = str(dst)
 
-        # Ensure keys exist even if nodes list omitted some endpoints.
         if src not in adjacency:
             adjacency[src] = []
             indegree[src] = 0
@@ -64,7 +62,6 @@ def is_directed_acyclic_graph(nodes: List[Any], edges: List[Any]) -> bool:
         adjacency[src].append(dst)
         indegree[dst] += 1
 
-    # Kahn's algorithm: DAG iff we can topologically order all vertices.
     q = deque([node_id for node_id, deg in indegree.items() if deg == 0])
     visited = 0
 

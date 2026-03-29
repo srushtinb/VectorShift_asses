@@ -7,12 +7,10 @@ import { BaseNode } from "./baseNode";
 const VARIABLE_RE = /\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g;
 
 const extractVariables = (text) => {
-  // Extract unique variable names from {{variable}} occurrences.
   const vars = [];
   const seen = new Set();
   let match;
   VARIABLE_RE.lastIndex = 0;
-  // eslint-disable-next-line no-cond-assign
   while ((match = VARIABLE_RE.exec(text)) !== null) {
     const variable = match[1];
     if (!seen.has(variable)) {
@@ -30,18 +28,13 @@ export const TextNode = ({ id, data }) => {
   const [nodeHeight, setNodeHeight] = useState(80);
   const textareaRef = useRef(null);
 
-  // Recompute variables each render so handles update immediately as the user types.
   const variables = useMemo(() => extractVariables(currText), [currText]);
 
   useLayoutEffect(() => {
     const el = textareaRef.current;
     if (!el) return;
 
-    // Let the textarea size itself to content first.
     el.style.height = "auto";
-
-    // Tune constants so the node looks like the previous 80px layout for 1 line,
-    // while still growing with more lines.
     const nextHeight = Math.min(220, Math.max(80, el.scrollHeight + 58));
     setNodeHeight(nextHeight);
   }, [currText]);

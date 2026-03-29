@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import { BaseNode } from './baseNode';
+import { useState } from "react";
+import { Handle, Position } from "reactflow";
+import { BaseNode } from "./baseNode";
 
 export const MathNode = ({ id, data }) => {
-  const [operator, setOperator] = useState(data?.operator || 'add');
+  const [operator, setOperator] = useState(data?.operator || "add");
   const [operandB, setOperandB] = useState(data?.operandB ?? 10);
 
   const handleOperatorChange = (e) => {
@@ -21,7 +21,7 @@ export const MathNode = ({ id, data }) => {
         type="target"
         position={Position.Left}
         id={`${id}-input`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
 
       <div>
@@ -47,7 +47,7 @@ export const MathNode = ({ id, data }) => {
             type="number"
             value={operandB}
             onChange={handleOperandBChange}
-            style={{ width: '80px' }}
+            style={{ width: "80px" }}
           />
         </label>
       </div>
@@ -56,9 +56,8 @@ export const MathNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-output`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
     </BaseNode>
   );
 };
-

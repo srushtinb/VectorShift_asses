@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import { BaseNode } from './baseNode';
+import { useState } from "react";
+import { Handle, Position } from "reactflow";
+import { BaseNode } from "./baseNode";
 
 export const ApiNode = ({ id, data }) => {
-  const [endpoint, setEndpoint] = useState(data?.endpoint || 'https://api.example.com/v1/resource');
-  const [method, setMethod] = useState(data?.method || 'GET');
+  const [endpoint, setEndpoint] = useState(
+    data?.endpoint || "https://api.example.com/v1/resource",
+  );
+  const [method, setMethod] = useState(data?.method || "GET");
 
   const handleEndpointChange = (e) => {
     setEndpoint(e.target.value);
@@ -20,7 +22,7 @@ export const ApiNode = ({ id, data }) => {
         type="target"
         position={Position.Left}
         id={`${id}-request`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
 
       <div>
@@ -47,7 +49,7 @@ export const ApiNode = ({ id, data }) => {
             type="text"
             value={endpoint}
             onChange={handleEndpointChange}
-            style={{ width: '160px' }}
+            style={{ width: "160px" }}
           />
         </label>
       </div>
@@ -56,9 +58,8 @@ export const ApiNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-response`}
-        style={{ top: '50%' }}
+        style={{ top: "50%" }}
       />
     </BaseNode>
   );
 };
-
